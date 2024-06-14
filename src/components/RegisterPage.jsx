@@ -2,6 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { joiResolver } from '@hookform/resolvers/joi';
 import Joi from 'joi';
+import { Button, Input } from 'antd';
 
 const schema = Joi.object({
   firstname: Joi.string().min(3).max(30).required().label('First Name'),
@@ -23,50 +24,50 @@ const RegisterPage = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form className='w-1/2' onSubmit={handleSubmit(onSubmit)}>
       <div>
         <label>First Name</label>
-        <input {...register('firstname')} />
+        <Input {...register('firstname')} />
         {errors.firstname && <p>{errors.firstname.message}</p>}
       </div>
 
       <div>
         <label>Last Name</label>
-        <input {...register('lastname')} />
+        <Input {...register('lastname')} />
         {errors.lastname && <p>{errors.lastname.message}</p>}
       </div>
 
       <div>
         <label>Email</label>
-        <input {...register('email')} />
+        <Input {...register('email')} />
         {errors.email && <p>{errors.email.message}</p>}
       </div>
 
       <div>
         <label>Password</label>
-        <input type="password" {...register('password')} />
+        <Input type="password" {...register('password')} />
         {errors.password && <p>{errors.password.message}</p>}
       </div>
 
       <div>
         <label>Phone</label>
-        <input {...register('phone')} />
+        <Input {...register('phone')} />
         {errors.phone && <p>{errors.phone.message}</p>}
       </div>
 
       <div>
         <label>Address</label>
-        <input {...register('address')} />
+        <Input {...register('address')} />
         {errors.address && <p>{errors.address.message}</p>}
       </div>
 
       <div>
         <label>Age</label>
-        <input type="number" {...register('age')} />
+        <Input type="number" {...register('age')} />
         {errors.age && <p>{errors.age.message}</p>}
       </div>
 
-      <button type="submit">Register</button>
+      <Button className='w-full mt-2 border' type="submit">Register</Button>
     </form>
   );
 };
