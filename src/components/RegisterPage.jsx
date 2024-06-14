@@ -24,7 +24,7 @@ const RegisterPage = () => {
   };
 
   return (
-    <form className='w-1/2' onSubmit={handleSubmit(onSubmit)}>
+    <form className='w-1/2' >
       <div>
         <label>First Name</label>
         <Input {...register('firstname')} />
@@ -67,7 +67,7 @@ const RegisterPage = () => {
         {errors.age && <p>{errors.age.message}</p>}
       </div>
 
-      <Button className='w-full mt-2 border' type="submit">Register</Button>
+      <Button onClick={handleSubmit(onSubmit)} className='w-full mt-2 border' type="submit">Register</Button>
     </form>
   );
 };
